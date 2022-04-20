@@ -486,7 +486,14 @@ tests:
         export WORKER_COUNT=0
       PLATFORM: vsphere
     workflow: assisted-vsphere
-zz_generated_metadata:
+- as: e2e-metal-assisted-ipxe
+  optional: true
+  steps:
+    cluster_profile: packet-assisted
+    env:
+      ASSISTED_CONFIG: |
+        export IPXE_BOOT=true
+    workflow: assisted-baremetal
   branch: master
   org: openshift
   repo: assisted-test-infra
